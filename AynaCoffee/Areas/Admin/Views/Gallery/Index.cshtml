@@ -1,0 +1,143 @@
+﻿@using System.Linq
+@model AynaCoffee.Areas.Admin.ViewModels.GalleryViewModel
+
+@{
+    ViewBag.Title = "Galeri";
+    Layout = "_Layout";
+}
+<!-- DataTables-->
+<link rel="stylesheet" href="~/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="~/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+<link rel="stylesheet" href="~/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+<!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Galeri</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Ana Sayfa</a></li>
+                            <li class="breadcrumb-item active">Galeri</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content">
+            <div class="container-fluid">
+                <section class="content">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <table id="dataTable1" class="display table table-striped table-hover" style="width: 100%;">
+                                            <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Görsel</th>
+                                                <th>Sil</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @if (Model.Galleries != null)
+                                            {
+                                                @foreach (var gallery in @Model.Galleries)
+                                                {
+                                                    <tr>
+                                                        <td>@gallery.Id</td>
+                                                        <td><img style="max-width: 255px;" class="img-fluid" src="@gallery.Path" alt="Galeri Görseli" /></td>
+                                                        <td>
+                                                            <form asp-area="Admin" asp-controller="Gallery" asp-action="Delete" asp-route-id="@gallery.Id" method="post">
+                                                                <span id="confirmDeleteSpan_@gallery.Id" style="display: none">
+                                                                    <button type="submit" data-toggle="tooltip" title="Onayla" class="btn-rounded btn-sm" style="border: transparent; background-color: transparent"> <span><i style="color: black" class="fa fa-check fa-lg"></i></span></button>
+                                                                    <a onclick="confirmDelete('@gallery.Id', false)" data-toggle="tooltip" title="İptal" class="btn-rounded btn-sm "> <span><i style="color: black" class="fa fa-times fa-lg"></i></span> </a>
+                                                                </span>
+                                                                <span id="deleteSpan_@gallery.Id">
+                                                                    <a onclick="confirmDelete('@gallery.Id', true)" data-toggle="tooltip" title="Sil" class="btn-sm btn-rounded"> <span style="color:red"><i class="fa fa-trash fa-lg"></i></span></a>
+                                                                </span>
+                                                            </form>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            }
+                                            </tbody>
+                                        </table>
+                                        <form asp-area="Admin" asp-controller="Gallery" asp-action="Index" enctype="multipart/form-data" method="post">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label for="PhotosToUpload">Görsel Seç:</label>
+                                                        <div class="input-group">
+                                                            <div class="custom-file">
+                                                                <input asp-for="PhotosToUpload" type="file" class="custom-file-input" multiple>
+                                                                <label class="custom-file-label" for="PhotoToUpload">Dosya Seç</label>
+                                                            </div>
+                                                        </div>
+                                                        <span asp-validation-for="PhotosToUpload" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="text-center">
+                                                        <button type="submit" class="btn btn-block btn-outline-info">Görsel Ekle</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </div>
+@section Scripts
+{
+    <!-- DataTables  & Plugins -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
+    <script src="~/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="~/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="~/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/plugins/jszip/jszip.min.js"></script>
+    <script src="~/plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="~/plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="~/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="~/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <script>
+        $(function() {
+            $("#example1").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+            $('#dataTable1').DataTable({
+                scrollX: true,
+                paging: true
+            });
+        });
+    </script>
+    <script src="~/js/confirm-delete.js"></script>
+    <script src="~/js/file-input.js"></script>
+}

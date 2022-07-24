@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AynaCoffee", "AynaCoffee\AynaCoffee.csproj", "{9076579C-1F13-427D-9F7E-4D94A78809D5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9076579C-1F13-427D-9F7E-4D94A78809D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9076579C-1F13-427D-9F7E-4D94A78809D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9076579C-1F13-427D-9F7E-4D94A78809D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9076579C-1F13-427D-9F7E-4D94A78809D5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {34F5FF45-ED2D-4451-8913-4FAAE4A3958C}
+	EndGlobalSection
+EndGlobal

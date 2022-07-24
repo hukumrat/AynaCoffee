@@ -1,0 +1,86 @@
+﻿@model AynaCoffee.Areas.Admin.ViewModels.SlideAddViewModel
+
+@{
+    ViewBag.Title = "Slayt Ekle";
+    Layout = "_Layout";
+}
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Slayt Ekle</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Ana Sayfa</a></li>
+                            <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Slides" asp-action="Index">Slaytlar</a></li>
+                            <li class="breadcrumb-item active">Slayt Ekle</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="content">
+            <div class="container-fluid">
+                <section class="content">
+                    <div class="container-fluid">
+                        <form asp-area="Admin" asp-controller="Slides" asp-action="Add" method="post" enctype="multipart/form-data" class="form-group">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card card-primary">
+                                        <div class="card-header">
+                                            <h3 class="card-title">İçerik</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="form-group">
+                                                <label for="Description">Slayt Açıklaması:</label>
+                                                <input data-toggle="tooltip" title="Ana sayfada slayt üzerinde görünen yazı." asp-for="Description" type="text" class="form-control form-control-border border-width-2 mt-3" placeholder="Slayt Açıklaması">
+                                                <span asp-validation-for="Description" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card card-primary">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Görsel</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <img style="max-width: 255px;" id="img-preview" class="img-fluid" src="~/Images/image-here.png" alt="Slayt Görseli" />
+                                            <div class="form-group">
+                                                <label for="PhotoToUpload">Slayt Görseli</label>
+                                                <div class="input-group">
+                                                    <div class="custom-file">
+                                                        <input asp-for="PhotoToUpload" type="file" class="custom-file-input">
+                                                        <label class="custom-file-label" for="PhotoToUpload">Dosya Seç</label>
+                                                    </div>
+                                                </div>
+                                                <span asp-validation-for="PhotoToUpload" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-block btn-outline-info">Slayt Ekle</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </div>
+@section Scripts
+{
+    <script src="~/js/file-input.js"></script>
+    <script src="~/js/image-preview.js"></script>
+}
+

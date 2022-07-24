@@ -1,0 +1,250 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<section id="Home" class="home-slider owl-carousel js-fullheight">
+    @await Component.InvokeAsync("Home")
+</section>
+
+
+<section id="AboutUs" class="ftco-section ftco-wrap-about ftco-no-pb">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-sm-10 wrap-about ftco-animate text-center">
+                <div class="heading-section mb-4 text-center">
+                    <span class="subheading">Hakkımızda</span>
+                    <h2 class="mb-4">Ayna Coffee</h2>
+                </div>
+                <p>
+                    On beş yıldır hizmet verdiğimiz kafemizde tüm Tarot çeşitleri ve Tarot eğitimi, kişisel gelişim danışmanlığı ve seminerleri, küçük terapi toplantıları...
+                    Profesyonel kadromuzdan faydalanmak için bizlerle iletişime geçiniz.
+                </p>
+
+                <!--         <div class="video justify-content-center">
+                    <a href="https://vimeo.com/45830194" class="icon-video popup-vimeo d-flex justify-content-center align-items-center">
+                        <span class="ion-ios-play"></span>
+                    </a>
+                </div>-->
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(images/carousel-bg.jpeg);" data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row d-md-flex align-items-center justify-content-center">
+            <div class="col-lg-10">
+                <div class="row d-md-flex align-items-center">
+                    <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+                        <div class="block-18">
+                            <div class="text">
+                                <strong class="number" data-number="15">0</strong>
+                                <span>Yıl Tecrübe</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+                        <div class="block-18">
+                            <div class="text">
+                                <strong class="number" data-number="50000">0</strong>
+                                <span>Memnun Müşteri</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+                        <div class="block-18">
+                            <div class="text">
+                                <strong class="number" data-number="5">0</strong>
+                                <span>Personel</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<style>
+    
+</style>
+<section id="Services" class="ftco-section bg-light">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-2">
+            <div class="col-md-7 text-center heading-section ftco-animate">
+                <span class="subheading">Hizmetlerimiz</span>
+                <h2 class="mb-4">Kafe Hizmetlerimiz</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="featured-carousel owl-carousel">
+                            <div class="item">
+                                <div class="work-wrap d-md-flex">
+                                    <div class="img order-md-last" style="background-image: url(images/tarot.jpeg"></div>
+                                    <div class="text text-left text-lg-right p-4 px-xl-5 d-flex align-items-center">
+                                        <div class="desc w-100">
+                                            <h2 class="mb-4">Tarot Falı</h2>
+                                            <div class="row justify-content-end">
+                                                <div class="col-xl-8">
+                                                    <p>Tarotun ortaya çıkış tarihi ve kelime anlamı ile ilgili söylenenler hep bir varsayımdan ibarettir ve kökeni net olarak bilinmemektedir. Bazı varsayımlara göre "Tarot" sözcüğünün kökeni, Eski Mısır’da "Kral Yolu" anlamına gelen “Ta-rosh" kelimesine dayanır. Başka bir rivayete göre ise Latince çark anlamında olan “Rota" kelimesinden türetilmiş bir şifredir. Bu kelime yaşamın doğumdan ölüme kadar dönen bir çark olduğunu simgeler.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="work-wrap d-md-flex">
+                                    <div class="img order-md-last" style="background-image: url(images/kahve-fali.jpeg);"></div>
+                                    <div class="text text-left text-lg-right p-4 px-xl-5 d-flex align-items-center">
+                                        <div class="py-md-5">
+                                            <h2 class="mb-4">Kahve Falı</h2>
+                                            <div class="row justify-content-end">
+                                                <div class="col-xl-8">
+                                                    <p>Türk Kahvesi Osmanlı döneminde 1517 yılında Yavuz Sultan Selim dönemimde Osmanlı saraylarında içilmeye başlanan özel bir kahve kültürü olarak Türk mutfağındaki yerini almıştır. Kahve falının da ilk kez Osmanlı Saraylarında ortaya çıktığı bilinmektedir. Türk kahvesi daha sonraları Bosna, Orta Doğu ve Balkanlara arsından da dünyanın pek çok yerine yayılmış bir kahve kültürüdür. Fakat kahve falı daha çok Türk kültürüne ait bir fal biçimidir.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="work-wrap d-md-flex">
+                                    <div class="img order-md-last" style="background-image: url(images/kursun.jpeg);"></div>
+                                    <div class="text text-left text-lg-right p-4 px-xl-5 d-flex align-items-center">
+                                        <div class="py-md-5">
+                                            <h2 class="mb-4">Kurşun Dökme</h2>
+                                            <div class="row justify-content-end">
+                                                <div class="col-xl-8">
+                                                    <p>Kurşun dökmenin geçmişi Şamanizme dayanıyor. İslamiyette yeri olmamakla birlikte, bu gelenek nazar ve uğursuzlukları kovma amacıyla uygulanır. Şamanlarda “Kut dökme” anlamına gelen “Kut Kuyma” olarak bilinen kurşun dökme, eski zamanlarda insanlara musallat olduğuna inanılan kötü ruhları kovmak için yapılıyordu.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="work-wrap d-md-flex">
+                                    <div class="img order-md-last" style="background-image: url(images/astroloji.jpeg);"></div>
+                                    <div class="text text-left text-lg-right p-4 px-xl-5 d-flex align-items-center">
+                                        <div class="py-md-5">
+                                            <h2 class="mb-4">Astroloji</h2>
+                                            <div class="row justify-content-end">
+                                                <div class="col-xl-8">
+                                                    <p>Astroloji kader değildir, herşey insanın kendi elindedir. Astroloji dönemleri inceler, fırsat alanlarını, şanslı zamanları, doğum haritanızda sizi kısıtlayan, zorlayan alanları, gecikmeleri gösterir. Sonuçta nasıl hareket edeceğiniz, neler yapacağınız hepsi sizin iradeniz içindedir. Gezegenlerin iyi açılar yaptığı şanslı dönemlerde, hiçbir şey yapmadan oturursanız bu fırsatları kaçırabilirsiniz.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="work-wrap d-md-flex">
+                                    <div class="img order-md-last" style="background-image: url(images/iliski-koclugu.jpeg);"></div>
+                                    <div class="text text-left text-lg-right p-4 px-xl-5 d-flex align-items-center">
+                                        <div class="py-md-5">
+                                            <h2 class="mb-4">İlişki Koçluğu</h2>
+                                            <div class="row justify-content-end">
+                                                <div class="col-xl-8">
+                                                    <p>Hepimiz sosyal varlıklarız ve hepimizin çevresinde gelişen ve farklılaşan ilişkilerimiz var. Eşimizle, ailemizle, çocuklarımızla, iş arkadaşlarımızla, çevremizle iyi ilişkiler içinde olmak hem bir gereklilik, hem de hayattan aldığımız zevki artırıcı unsurlardır. İlişkilerimizde ne kadar tatmin bulabiliyorsak yaşamdan aldığımız zevk o kadar artar diyebiliriz.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="work-wrap d-md-flex">
+                                    <div class="img order-md-last" style="background-image: url(images/yasam-koclugu.jpeg);"></div>
+                                    <div class="text text-left text-lg-right p-4 px-xl-5 d-flex align-items-center">
+                                        <div class="py-md-5">
+                                            <h2 class="mb-4">Yaşam Koçluğu</h2>
+                                            <div class="row justify-content-end">
+                                                <div class="col-xl-8">
+                                                    <p>Kişisel ve mesleki potansiyeli maksimize etmek üzere, karşısındakini daha fazla düşünmeye teşvik ederek yaratıcı süreçler içine girmesi için ilham veren, müşteri ile koçun işbirliği içinde olduğu bir ilişkidir.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="work-wrap d-md-flex">
+                                    <div class="img order-md-last" style="background-image: url(images/theta-healing.jpeg);"></div>
+                                    <div class="text text-left text-lg-right p-4 px-xl-5 d-flex align-items-center">
+                                        <div class="py-md-5">
+                                            <h2 class="mb-4">Theta Healing</h2>
+                                            <div class="row justify-content-end">
+                                                <div class="col-xl-8">
+                                                    <p>Bilinçaltınızda bulunan ancak bilince çıkaramadığınız veya çıkarsanız bile düzeltemediğiniz için hayatınızı olumsuz etkileyen yanlış kodlamaların, düşünce ya da hissetme alışkanlıklarının değiştirilmesine ve düzeltilmesine yarayan yöntem.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="work-wrap d-md-flex">
+                                    <div class="img order-md-last" style="background-image: url(images/spirituel.jpeg);"></div>
+                                    <div class="text text-left text-lg-right p-4 px-xl-5 d-flex align-items-center">
+                                        <div class="py-md-5">
+                                            <h2 class="mb-4">Spiritüel Danışmanlık</h2>
+                                            <div class="row justify-content-end">
+                                                <div class="col-xl-8">
+                                                    <p>Spiritüellik zaman zaman din ile kaıştırılabilen güçlü bir ilkedir. Spiritüellik, yani ruhanilik, sizin Yaratıcı Kaynakla olan teke tek içsel ilişkinizdir. “Bizler, ruhsal deneyim yaşayan bir insanlar değil; insani deneyim yaşayan ruhlarız.”</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="Experts" class="ftco-section">
+    @await Component.InvokeAsync("Experts")
+</section>
+
+<section id="ContactUs" class="ftco-section ">
+    @await Component.InvokeAsync("ContactUs")
+</section>
+
+<section class="ftco-section ftco-no-pt ftco-no-pb">
+    <div class="container-fluid px-0">
+        <div class="row no-gutters">
+            <div class="col-md">
+                <a href="https://www.instagram.com/alevaynacofee/" class="instagram img d-flex align-items-center justify-content-center" style="background-image: url(images/insta-1.jpeg);">
+                    <span class="ion-logo-instagram"></span>
+                </a>
+            </div>
+            <div class="col-md">
+                <a href="https://www.instagram.com/alevaynacofee/" class="instagram img d-flex align-items-center justify-content-center" style="background-image: url(images/insta-2.jpeg);">
+                    <span class="ion-logo-instagram"></span>
+                </a>
+            </div>
+            <div class="col-md">
+                <a href="https://www.instagram.com/alevaynacofee/" class="instagram img d-flex align-items-center justify-content-center" style="background-image: url(images/insta-3.jpeg);">
+                    <span class="ion-logo-instagram"></span>
+                </a>
+            </div>
+            <div class="col-md">
+                <a href="https://www.instagram.com/alevaynacofee/" class="instagram img d-flex align-items-center justify-content-center" style="background-image: url(images/insta-4.jpeg);">
+                    <span class="ion-logo-instagram"></span>
+                </a>
+            </div>
+            <div class="col-md">
+                <a href="https://www.instagram.com/alevaynacofee/" class="instagram img d-flex align-items-center justify-content-center" style="background-image: url(images/insta-5.jpeg);">
+                    <span class="ion-logo-instagram"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

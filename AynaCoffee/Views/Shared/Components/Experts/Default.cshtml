@@ -1,0 +1,26 @@
+﻿@using AynaCoffee.Areas.Admin.Models
+@model List<AynaCoffee.Areas.Admin.ViewModels.ExpertsListViewModel>
+
+<div class="container">
+    <div class="row justify-content-center mb-5 pb-2">
+        <div class="col-md-7 text-center heading-section ftco-animate">
+            <span class="subheading">Uzman</span>
+            <h2 class="mb-4">Uzmanlarımız</h2>
+        </div>
+    </div>
+    <div class="row">
+        @foreach (var expert in @Model)
+        {
+            <div class="col-md-6 col-lg-3 ftco-animate">
+                <div class="staff">
+                    <div class="img" style="background-image: url(@expert.Content.Photo.Path);"></div>
+                    <div class="text pt-4">
+                        <h3>@expert.Name @expert.Surname</h3>
+                        <span class="position mb-2">@expert.Position</span>
+                        <p>@expert.Content.Description</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

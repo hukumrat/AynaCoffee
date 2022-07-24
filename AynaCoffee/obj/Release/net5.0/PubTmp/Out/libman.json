@@ -1,0 +1,34 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "izitoast@1.4.0",
+      "destination": "wwwroot/lib/izitoast/"
+    },
+    {
+      "library": "font-awesome@5.15.2",
+      "destination": "wwwroot/lib/font-awesome/"
+    },
+    {
+      "library": "ionicons@5.4.0",
+      "destination": "wwwroot/lib/ionicons/"
+    },
+    {
+      "library": "tempusdominus-bootstrap-4@5.39.0",
+      "destination": "wwwroot/lib/tempusdominus-bootstrap-4/"
+    },
+    {
+      "library": "iCheck@1.0.3",
+      "destination": "wwwroot/lib/iCheck/"
+    },
+    {
+      "library": "jqvmap@1.5.1",
+      "destination": "wwwroot/lib/jqvmap/"
+    },
+    {
+      "library": "overlayscrollbars@1.13.1",
+      "destination": "wwwroot/lib/overlayscrollbars/"
+    }
+  ]
+}

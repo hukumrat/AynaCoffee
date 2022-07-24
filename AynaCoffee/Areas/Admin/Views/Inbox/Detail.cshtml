@@ -1,0 +1,65 @@
+﻿@model AynaCoffee.Areas.Admin.Models.Message
+
+@{
+    ViewBag.Title = "Mesaj Detayı";
+    Layout = "_Layout";
+}
+
+
+<!-- Content Wrapper. Contains page content -->
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Mesaj Detayı</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Ana Sayfa</a></li>
+                        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Inbox" asp-action="Index">Gelen Kutusu</a></li>
+                        <li class="breadcrumb-item active">Mesaj Detayı</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <form> 
+                                <div class="form-group">
+                                    <label asp-for="Name" >İsim:</label>
+                                    <label style="height: auto; word-wrap: normal; word-break: break-all;" class="form-control"> @Model.Name </label>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Surname" >Soy İsim:</label>
+                                    <label style="height: auto; word-wrap: normal; word-break: break-all;" class="form-control"> @Model.Surname </label>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Email" >E-Posta:</label>
+                                    <label style="height: auto; word-wrap: normal; word-break: break-all;" class="form-control"> @Model.Email </label>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Description" >Mesaj:</label>
+                                    <label style="height: auto; word-wrap: normal; word-break: break-all;" class="form-control"> @Model.Description </label>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+@section Scripts
+{
+    <script src="~/js/confirm-delete.js"></script>
+}
+

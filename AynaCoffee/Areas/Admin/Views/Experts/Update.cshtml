@@ -1,0 +1,104 @@
+﻿@model AynaCoffee.Areas.Admin.ViewModels.ExpertsUpdateViewModel
+
+@{
+    ViewBag.Title = "Uzman Güncelle";
+    Layout = "_Layout";
+}
+<div class="wrapper">
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Uzman Güncelle</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Ana Sayfa</a></li>
+                            <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Experts" asp-action="Index">Uzmanlar</a></li>
+                            <li class="breadcrumb-item active">Uzman Güncelle</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="content">
+            <div class="container-fluid">
+                <section class="content">
+                    <div class="container-fluid">
+                        <form asp-area="Admin" asp-controller="Experts" asp-action="Update" method="post" enctype="multipart/form-data" class="form-group">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card card-primary">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Kişisel Bilgiler</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="form-group">
+                                                <input asp-for="ContentId" type="hidden" value="@Model.ContentId" />
+                                                <label for="Name">İsim:</label>
+                                                <input asp-for="Name" type="text" class="form-control form-control-border border-width-2" placeholder="İsim">
+                                                <span asp-validation-for="Name" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Surname">Soy İsim:</label>
+                                                <input asp-for="Surname" type="text" class="form-control form-control-border border-width-2" placeholder="Soy İsim">
+                                                <span asp-validation-for="Surname" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Position">Pozisyon:</label>
+                                                <input data-toggle="tooltip" title="İsmin altında görünür. Uzmanlık alanını veya iş yerindeki konumu belirtir." asp-for="Position" type="text" class="form-control form-control-border border-width-2" placeholder="Pozisyon">
+                                                <span asp-validation-for="Position" class="text-danger"></span>
+
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Description">Açıklama:</label>
+                                                <textarea data-toggle="tooltip" title="Uzman hakkındaki açıklama. Çalıştığı günler, uzmanlık alanı vs." asp-for="Description" class="form-control" rows="3" placeholder="Açıklama..."></textarea>
+                                                <span asp-validation-for="Description" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card card-primary">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Görsel</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <input asp-for="PhotoPath" type="hidden" value="@Model.PhotoPath" />
+                                            <img style="max-width: 255px;" id="img-preview" class="img-fluid" src="@Model.PhotoPath" alt="Uzman Görseli"/>
+                                            <div class="form-group">
+                                                <label for="PhotoToUpload">Uzman Görseli</label>
+                                                <div class="input-group">
+                                                    <div class="custom-file">
+                                                        <input asp-for="PhotoToUpload" type="file" class="custom-file-input">
+                                                        <label class="custom-file-label" for="PhotoToUpload">Dosya Seç</label>
+                                                    </div>
+                                                </div>
+                                                <span asp-validation-for="PhotoToUpload" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-block btn-outline-info">Uzman Güncelle</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </div>
+</div>
+@section Scripts
+{
+    <script src="~/js/file-input.js"></script>
+    <script src="~/js/image-preview.js"></script>
+}

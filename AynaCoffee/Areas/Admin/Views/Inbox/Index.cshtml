@@ -1,0 +1,123 @@
+﻿@model List<AynaCoffee.Areas.Admin.Models.Message>
+
+@{
+    ViewBag.Title = "Gelen Kutusu";
+    Layout = "_Layout";
+}
+
+<!-- DataTables-->
+
+<link rel="stylesheet" href="~/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="~/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+<link rel="stylesheet" href="~/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+
+<!-- Content Wrapper. Contains page content -->
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Gelen Kutusu</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Ana Sayfa</a></li>
+                        <li class="breadcrumb-item active">Gelen Kutusu</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <table id="dataTable1" class="display table table-striped table-hover" style="width: 100%;">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>İsim</th>
+                                        <th>Soy İsim</th>
+                                        <th>E-Posta</th>
+                                        <th>Mesaj</th>
+                                        <th>Detay</th>
+                                        <th>Sil</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var message in @Model)
+                                    {
+                                    <tr>
+                                        <td>@message.Id</td>
+                                        <td>@message.Name</td>
+                                        <td>@message.Surname</td>
+                                        <td>@message.Email</td>
+                                        <td><label style=" overflow-y: scroll; word-wrap: normal; word-break: break-all; height: 125px; width:auto" class="form-control">@message.Description </label></td>
+                                        <td> <a type="button" asp-area="Admin" asp-controller="Inbox" asp-action="Detail" asp-route-id="@message.Id" class="btn-rounded btn-sm"> <i data-toggle="tooltip" title="Detay" style="color: black" class="fas fa-edit fa-lg"></i> </a></td>
+                                        <td>
+                                            <form asp-area="Admin" asp-controller="Inbox" asp-action="DeleteMessage" asp-route-id="@message.Id" method="post">
+                                                <span id="confirmDeleteSpan_@message.Id" style="display: none">
+                                                    <button type="submit" data-toggle="tooltip" title="Onayla" class="btn-rounded btn-sm" style="border: transparent; background-color: transparent"> <span><i style="color: black" class="fa fa-check fa-lg"></i></span></button>
+                                                    <a onclick="confirmDelete('@message.Id', false)" data-toggle="tooltip" title="İptal" class="btn-rounded btn-sm "> <span><i style="color: black" class="fa fa-times fa-lg"></i></span> </a>
+                                                </span>
+                                                <span id="deleteSpan_@message.Id">
+                                                    <a onclick="confirmDelete('@message.Id', true)" data-toggle="tooltip" title="Sil" class="btn-sm btn-rounded"> <span style="color:red"><i class="fa fa-trash fa-lg"></i></span></a>
+                                                </span>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+@section Scripts
+{
+    <!-- DataTables  & Plugins -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
+    <script src="~/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="~/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="~/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/plugins/jszip/jszip.min.js"></script>
+    <script src="~/plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="~/plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="~/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="~/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <script>
+        $(function () {
+            $("#example1").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+            $('#dataTable1').DataTable({
+                scrollX: true,
+                paging: true
+            });
+        });
+    </script>
+    <script src="~/js/confirm-delete.js"></script>
+}

@@ -1,0 +1,132 @@
+﻿@model List<AynaCoffee.Areas.Admin.ViewModels.ExpertsListViewModel>
+
+@{
+    ViewBag.Title = "Uzmanlar";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<!-- DataTables-->
+
+<link rel="stylesheet" href="~/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="~/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+<link rel="stylesheet" href="~/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+
+<!-- Content Wrapper. Contains page content -->
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Uzmanlar</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Ana Sayfa</a></li>
+                        <li class="breadcrumb-item active">Uzmanlar</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <a asp-area="Admin" asp-controller="Experts" asp-action="Add" class="btn btn-app bg-info">
+                                <i class="fas fa-plus"></i> Uzman Ekle
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <table id="dataTable1" class="display table table-striped table-hover" style="width: 100%;">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>İsim</th>
+                                        <th>Soy İsim</th>
+                                        <th>Pozisyon</th>
+                                        <th>Açıklama</th>
+                                        <th>Görsel</th>
+                                        <th>Güncelle</th>
+                                        <th>Sil</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var expert in @Model)
+                                    {
+                                        <tr>
+                                            <td>@expert.ContentId</td>
+                                            <td>@expert.Name</td>
+                                            <td>@expert.Surname</td>
+                                            <td>@expert.Position</td>
+                                            <td>@expert.Content.Description</td>
+                                            <td>
+                                                <img class="img-fluid" src="@expert.Content.Photo.Path" alt="Uzman Görseli" width="127" height="155" />
+
+                                            </td>
+                                            <td> <a type="button" asp-area="Admin" asp-controller="Experts" asp-action="Update" asp-route-id="@expert.ContentId" class="btn-rounded btn-sm"> <i data-toggle="tooltip" title="Güncelle" data-placement="top" style="color: black" class="fas fa-edit fa-lg"></i> </a></td>
+                                            <td>
+                                                <form asp-area="Admin" asp-controller="Experts" asp-action="DeleteExpert" asp-route-id="@expert.ContentId" method="post">
+                                                    <span id="confirmDeleteSpan_@expert.ContentId" style="display: none">
+                                                        <button type="submit" data-toggle="tooltip" title="Onayla" class="btn-rounded btn-sm" style="border: transparent; background-color: transparent"> <span><i style="color: black" class="fa fa-check fa-lg"></i></span></button>
+                                                        <a onclick="confirmDelete('@expert.ContentId', false)" data-toggle="tooltip" title="İptal" class="btn-rounded btn-sm "> <span><i style="color: black" class="fa fa-times fa-lg"></i></span> </a>
+                                                    </span>
+                                                    <span id="deleteSpan_@expert.ContentId">
+                                                        <a onclick="confirmDelete('@expert.ContentId', true)" data-toggle="tooltip" title="Sil" class="btn-sm btn-rounded"> <span style="color:red"><i class="fa fa-trash fa-lg"></i></span></a>
+                                                    </span>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+@section Scripts
+{
+    <!-- DataTables  & Plugins -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
+    <script src="~/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="~/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="~/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/plugins/jszip/jszip.min.js"></script>
+    <script src="~/plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="~/plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="~/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="~/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <script>
+        $(function () {
+            $("#example1").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+            $('#dataTable1').DataTable({
+                scrollX: true,
+                paging: true
+            });
+        });
+    </script>
+    <script src="~/js/confirm-delete.js"></script>
+}

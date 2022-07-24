@@ -1,0 +1,187 @@
+﻿@model List<AynaCoffee.Areas.Admin.Models.Gallery>
+
+@{
+    ViewBag.Title = "Tarot falı, Astroloji, Kişisel Gelişimin Merkezi | Ayna Coffee - Galeri";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <title>Tarot falı, Astroloji, Kişisel Gelişimin Merkezi | Ayna Coffee - Galeri</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Ayna Coffee'nin profesyonel fal ve burç yorumları yaptığı astroloji kokan, ilişki ve yaşam koçlarımızın seanslarını odalarına göz atın">
+    <meta name="keywords" content="Fal fotoğrafları, Burç fotoğrafları, Astroloji fotoğrafları, Ayna Coffee fotoğrafları, Ayna Coffee nerede?, İlişki koçluğu, Spiritüel danışmanlık, ">
+    <meta name="author" content="Ayna Coffee">
+    <meta name="robots" content="index, follow">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Monoton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Miss+Fajardose&display=swap" rel="stylesheet">
+
+    <link href="~/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/lib/home/page/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="~/lib/home/page/css/animate.css">
+
+    <link rel="stylesheet" href="~/lib/home/page/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/lib/home/page/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/lib/home/page/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="~/lib/home/page/css/aos.css">
+
+    <link rel="stylesheet" href="~/lib/home/page/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="~/lib/home/page/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/lib/home/page/css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="~/lib/home/page/css/flaticon.css">
+    <link rel="stylesheet" href="~/lib/home/page/css/icomoon.css">
+    <link rel="stylesheet" href="~/lib/home/page/css/style.css">
+    <link href="~/lib/fancybox/jquery.fancybox.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="py-1 bg-black top">
+        <div class="container">
+            <div class="row no-gutters d-flex align-items-start align-items-center px-md-0">
+                <div class="col-lg-12 d-block">
+                    <div class="row d-flex">
+                        <div class="col-md pr-4 d-flex topper align-items-center">
+                            <div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-phone2"></span></div>
+                            <span class="text"><a href="tel:05336653684">0533 665 3684</a></span>
+                        </div>
+                        <div class="col-md pr-4 d-flex topper align-items-center">
+                            <div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-paper-plane"></span></div>
+                            <span class="text">alev@aynacoffee.com</span>
+                        </div>
+                        <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right justify-content-end">
+                            <p class="mb-0 register-link"><span>Çalışma saatleri:</span> <span>Pazartesi - Pazar</span> <span>10:00 - 22:00</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="/#Home">Ayna Coffee</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menü
+            </button>
+
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a href="/#Home" class="nav-link">Ana Sayfa</a></li>
+                    <li class="nav-item"><a href="/#AboutUs" class="nav-link">Hakkımızda</a></li>
+                    <li class="nav-item"><a href="/#Services" class="nav-link">Hizmetlerimiz</a></li>
+                    <li class="nav-item"><a href="/#Experts" class="nav-link">Uzmanlarımız</a></li>
+                    <li class="nav-item"><a href="/#ContactUs" class="nav-link">Bize Ulaşın</a></li>
+                    <li class="nav-item active"><a asp-controller="Gallery" asp-action="Index" class="nav-link">Galeri</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END nav -->
+
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('images/gallery-carousel-bg.jpeg');" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text align-items-end justify-content-center">
+                <div class="col-md-9 ftco-animate text-center">
+                    <h1 class="mb-2 bread">Galeri</h1>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="/#Home">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Galeri <i class="ion-ios-arrow-forward"></i></span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="Gallery" class="ftco-section bg-light">
+        <div class="container">
+
+            <div id="posts" class="row no-gutter">
+                @foreach (var gallery in @Model)
+                {
+                    <div class="item col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
+                        <a href="@gallery.Path" class="item-wrap fancybox" data-fancybox="gallery2">
+                            <span class="icon-search2"></span>
+                            <img class="img-fluid" src="@gallery.Path">
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+
+    </section>
+
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
+        <div class="container">
+            <div class="row mb-5 text-center col-md-12">
+                <div class="col-md-4">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Ayna Coffee</h2>
+                        <p>
+                            On beş yıldır hizmet verdiğimiz kafemizde tüm Tarot çeşitleri ve Tarot eğitimi, kişisel gelişim danışmanlığı ve seminerleri, küçük terapi toplantıları...
+                            Profesyonel kadromuzdan faydalanmak için bizlerle iletişime geçiniz.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Çalışma Saatleri</h2>
+                        <ul class="list-unstyled open-hours">
+                            <li class="d-flex"><span>Pazartesi</span><span>10:00 - 22:00</span></li>
+                            <li class="d-flex"><span>Salı</span><span>10:00 - 22:00</span></li>
+                            <li class="d-flex"><span>Çarşamba</span><span>10:00 - 22:00</span></li>
+                            <li class="d-flex"><span>Perşembe</span><span>10:00 - 22:00</span></li>
+                            <li class="d-flex"><span>Cuma</span><span>10:00 - 22:00</span></li>
+                            <li class="d-flex"><span>Cumartesi</span><span>10:00 - 22:00</span></li>
+                            <li class="d-flex"><span>Pazar</span><span> 10:00 - 22:00</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Bizi Sosyal Medyada Takip Edin</h2>
+                        <a href="https://www.instagram.com/alevaynacofee/" class="pl-3"><i class="fab fa-instagram fa-2x"></i></a>
+                        <a href="" class="pl-3"><i class="fab fa-twitter fa-2x"></i></a>
+                        <a href="" class="pl-3"><i class="fab fa-facebook-f fa-2x"></i></a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p>
+                        Copyright &copy;
+                        <script>document.write(new Date().getFullYear());</script> | Tüm hakları saklıdır. | Ayna Coffee
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
+    <script src="~/lib/home/page/js/jquery.min.js"></script>
+    <script src="~/lib/home/page/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="~/lib/home/page/js/popper.min.js"></script>
+    <script src="~/lib/home/page/js/bootstrap.min.js"></script>
+    <script src="~/lib/home/page/js/jquery.easing.1.3.js"></script>
+    <script src="~/lib/home/page/js/jquery.waypoints.min.js"></script>
+    <script src="~/lib/home/page/js/jquery.stellar.min.js"></script>
+    <script src="~/lib/home/page/js/owl.carousel.min.js"></script>
+    <script src="~/lib/home/page/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/lib/home/page/js/aos.js"></script>
+    <script src="~/lib/home/page/js/jquery.animateNumber.min.js"></script>
+    <script src="~/lib/home/page/js/bootstrap-datepicker.js"></script>
+    <script src="~/lib/home/page/js/jquery.timepicker.min.js"></script>
+    <script src="~/lib/home/page/js/scrollax.min.js"></script>
+    <script src="~/lib/home/page/js/main.js"></script>
+    <script src="~/lib/fancybox/jquery.fancybox.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".fancybox").fancybox();
+        });
+    </script>
+</body>
+</html>

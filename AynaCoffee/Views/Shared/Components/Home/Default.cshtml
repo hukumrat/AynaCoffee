@@ -1,0 +1,14 @@
+﻿@model System.Collections.Generic.List<AynaCoffee.Areas.Admin.ViewModels.SlidesListViewModel>
+@foreach (var slide in @Model)
+{
+    <div class="slider-item js-fullheight" style="background-image: url(@slide.PhotoPath);">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row slider-text js-fullheight justify-content-center align-items-center" data-scrollax-parent="true">
+                <div class="col-md-12 col-sm-12 text-center ftco-animate">
+                    <h1 class="mb-4 mt-5">@slide.Description</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+}
